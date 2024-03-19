@@ -23,6 +23,7 @@ for x in xs:
 # 初期値
 w = np.array([10, 10, 10, 10], dtype="float")
 for i in range(1000000):
+    # 勾配に用いるサンプルをひとつ取る
     n = np.random.randint(1000)
     fw = tls.poly_func(w)
     w = w - fw.loss_grad_poly(xs[n], ys[n]) * ss
@@ -35,6 +36,7 @@ for x in xs:
 plt.plot(xs, yss, color= "red")
 
 # グラフを描画
+# 青い点がサンプル、赤い線が今回の推定で得られた曲線
 plt.scatter(xs, ys)
 plt.xlim(-10, 10)
 plt.ylim(-10, 10)
