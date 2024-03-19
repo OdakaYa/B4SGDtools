@@ -10,11 +10,11 @@ class SGD():
         self.lam = l
 
     def new_w(self, w, grad, ch):
-        w = w - stepsize * grad
+        w = w - self.stepsize * grad
         if ch == 1:
-            w = tls.prox1(w, lam)
+            w = tls.prox1(w, self.lam)
         elif ch == 2:
-            w = tls.prox2(w, lam)
+            w = tls.prox2(w, self.lam)
         return w
 
 if __name__ == "__main__":
